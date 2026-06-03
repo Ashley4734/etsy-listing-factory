@@ -1,0 +1,25 @@
+{
+  "name": "etsy-digital-product-listing-factory",
+  "version": "0.1.0",
+  "description": "AI-powered Etsy digital product listing kit generator, deployable on Coolify.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "NODE_ENV=development node --watch src/server.js",
+    "check": "node --check src/server.js && node --check src/lib/generator.js && node --check src/lib/storage.js && node --check src/lib/exporter.js && node --check src/lib/assets.js && node --check src/lib/etsy.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "multer": "^2.0.2",
+    "openai": "^4.77.0",
+    "slugify": "^1.6.6",
+    "uuid": "^11.0.5"
+  }
+}
