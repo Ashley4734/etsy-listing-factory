@@ -1,6 +1,7 @@
 {
   "name": "etsy-digital-product-listing-factory",
   "version": "0.1.0",
+  "packageManager": "pnpm@10.24.0",
   "description": "AI-powered Etsy digital product listing kit generator, deployable on Coolify.",
   "packageManager": "pnpm@10.24.0",
   "type": "module",
