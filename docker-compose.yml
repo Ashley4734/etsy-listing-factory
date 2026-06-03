@@ -1,0 +1,14 @@
+services:
+  etsy-listing-factory:
+    build: .
+    container_name: etsy-listing-factory
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - etsy_listing_factory_data:/app/data
+
+volumes:
+  etsy_listing_factory_data:
