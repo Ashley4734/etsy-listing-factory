@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Etsy Digital Product Listing Factory</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">AI SaaS MVP</p>
+      <h1>Etsy Digital Product Listing Factory</h1>
+      <p class="subhead">Generate Etsy-ready copy, tags, Pinterest pins, alt text, and listing image cards from one product idea.</p>
+    </div>
+    <div class="status-card">
+      <span id="aiMode">Checking…</span>
+      <small>Export-first workflow</small>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel create-panel">
+      <div class="panel-header">
+        <h2>Create listing kit</h2>
+        <p>Fill this out like a product brief. Uploads are optional and are stored with the project export.</p>
+      </div>
+      <form id="projectForm" enctype="multipart/form-data">
+        <div class="grid two">
+          <label>Product name
+            <input name="productName" placeholder="Cozy Cats Coloring Book" required />
+          </label>
+          <label>Brand / shop name
+            <input name="brandName" value="Bliss Fox Studio" />
+          </label>
+        </div>
+
+        <div class="grid two">
+          <label>Product type
+            <select name="productType">
+              <option>Digital coloring book</option>
+              <option>Printable wall art</option>
+              <option>Samsung Frame TV art</option>
+              <option>Digital planner</option>
+              <option>Clipart bundle</option>
+              <option>SVG bundle</option>
+              <option>Printable activity pages</option>
+              <option>Digital download</option>
+            </select>
+          </label>
+          <label>Target price
+            <input name="priceTarget" placeholder="$4.99" />
+          </label>
+        </div>
+
+        <label>Theme / niche
+          <input name="theme" placeholder="cute indoor cats, cozy home, relaxing adult coloring" required />
+        </label>
+
+        <label>Visual style
+          <input name="style" placeholder="bold clean line art, cozy, printable, beginner friendly" />
+        </label>
+
+        <label>Target buyer
+          <input name="targetBuyer" placeholder="cat moms, adults who like relaxing coloring pages, printable lovers" />
+        </label>
+
+        <label>Keywords to include
+          <textarea name="keywords" rows="3" placeholder="cat coloring book, printable coloring pages, adult coloring, cozy cats, digital download"></textarea>
+        </label>
+
+        <label>Included files
+          <textarea name="includedFiles" rows="3" placeholder="1 PDF coloring book, 30 PNG pages, US Letter PDF, A4 PDF, read-me file"></textarea>
+        </label>
+
+        <div class="grid two">
+          <label>License / use note
+            <input name="commercialUse" value="Personal use only" />
+          </label>
+          <label>Tone
+            <input name="tone" value="warm, clear, buyer-friendly" />
+          </label>
+        </div>
+
+        <label>Extra notes
+          <textarea name="notes" rows="3" placeholder="Mention instant download, no physical product, good for gifts, easy print-at-home use."></textarea>
+        </label>
+
+        <label>Reference files / product images
+          <input name="files" type="file" multiple />
+        </label>
+
+        <button id="generateButton" type="submit">Generate listing kit</button>
+      </form>
+    </section>
+
+    <section class="panel output-panel">
+      <div class="panel-header row">
+        <div>
+          <h2>Generated output</h2>
+          <p id="outputMeta">Create a project to see the listing kit.</p>
+        </div>
+        <a id="downloadZip" class="button secondary disabled" href="#">Export ZIP</a>
+      </div>
+
+      <div id="loading" class="loading hidden">Generating your listing kit…</div>
+      <div id="output" class="output empty">No project generated yet.</div>
+    </section>
+  </main>
+
+  <section class="panel projects-panel">
+    <div class="panel-header row">
+      <div>
+        <h2>Recent projects</h2>
+        <p>Saved locally on this server.</p>
+      </div>
+      <button id="refreshProjects" class="secondary">Refresh</button>
+    </div>
+    <div id="projects" class="projects"></div>
+  </section>
+
+  <script src="/app.js"></script>
+</body>
+</html>
